@@ -1,0 +1,42 @@
+<html>
+    {{$folder_name := .Name}}
+    <header></header>
+    <body>
+        <div style="width: 100%;">
+            <div style="margin: auto; width: 50%;">
+                <h3>Папки:</h3>
+                {{range $key, $value := .Children}}
+                    <div style="display: flex;">
+                        <a href="/conductor/{{$value.Name}}" style="color: black; text-decoration: none;">
+                            <div>
+                                {{$value.Name}}
+                            </div>
+                        </a>
+                        <a href="/conductor/{{$folder_name}}/{{$value.Name}}/update_folder_name" style="color: black; text-decoration: none; margin-left: 8px;"><div>Переименовать</div></a>
+                    </div>
+                    
+                {{end}}
+                <h3>Файлы:</h3>
+                {{range $key, $value := .Files}}
+                    <div style="display: flex;">
+                        <a href="" style="color: black; text-decoration: none;">
+                            <div>
+                                {{$value.Name}}
+                            </div>
+                        </a>
+                        <a href="/conductor/{{$folder_name}}/{{$value.Name}}/download_file" style="color: black; text-decoration: none; margin-left: 8px;"><div>Скачать</div></a>
+                        <a href="/conductor/{{$folder_name}}/{{$value.Name}}/update_file_name" style="color: black; text-decoration: none; margin-left: 8px;"><div>Переименовать</div></a>
+                        <a href="/conductor/{{$folder_name}}/{{$value.Name}}/delete_file" style="color: black; text-decoration: none; margin-left: 8px;"><div>Удалить</div></a>
+                    </div>
+                {{end}}
+                <div style="display: flex;">
+                    {{if ne .Name "root"}}
+                        <a href="/conductor/{{.Parent.Name}}" style="color: black; text-decoration: none; margin-right: 8px;"><div>Назад</div></a> 
+                    {{end}}
+                    <a href="/conductor/{{$folder_name}}/create_folder" style="color: black; text-decoration: none; margin-right: 8px;"><div>Создать папку</div></a>
+                    <a href="/conductor/{{$folder_name}}/create_file" style="color: black; text-decoration: none;"><div>Создать файл</div></a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

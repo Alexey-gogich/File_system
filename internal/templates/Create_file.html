@@ -1,0 +1,13 @@
+<html>
+    <header></header>
+    <body>
+        <div style="width: 100%;">
+            <div style="margin-left: auto; margin-right: auto;">
+            <form action="/conductor/{{.Folder_name}}/create_file" method="post"  enctype="multipart/form-data">
+                <input type="file" name="file" id="file" multiple>
+                <button type="submit">Отправить</button>
+            </form>
+            </div>
+        </div>
+    </body>
+</html>

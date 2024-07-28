@@ -1,0 +1,20 @@
+<html>
+    <header></header>
+    <body>
+        <div style="width: 100%;">
+            <div style="margin-left: auto; margin-right: auto; box-shadow: 16px;">
+            {{if .Child_name}}
+                <form action="/conductor/{{.Folder_name}}/{{.Child_name}}/update_folder_name" method="post">
+                    <input type="text" name="folder_name" id="folder_name" value="{{.Child_name}}">
+                    <button type="submit">Отправить</button>
+                </form>
+            {{else}}
+                <form action="/conductor/{{.Folder_name}}/{{.File_name}}/update_file_name" method="post">
+                    <input type="text" name="file_name" id="file_name" value="{{.File_name}}">
+                    <button type="submit">Отправить</button>
+                </form>
+            {{end}}
+            </div>
+        </div>
+    </body>
+</html>
